@@ -1,18 +1,13 @@
 package com.elite.animation;
 
 import android.animation.ObjectAnimator;
-import android.animation.PointFEvaluator;
-import android.animation.ValueAnimator;
 import android.app.Fragment;
 import android.graphics.Point;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.RelativeLayout;

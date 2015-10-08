@@ -3,4 +3,8 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="btn_old_demo">弹出消息</string>
+    <string name="string_old_demo">这是旧版动画机制的弊端</string>
+    <string name="btn_old_start">开始动画</string>
+    <string name="btn_old_start_stay">执行动画后停滞</string>
 </resources>
