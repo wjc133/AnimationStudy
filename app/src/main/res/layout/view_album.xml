@@ -4,28 +4,52 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout android:layout_width="match_parent"
+    <GridLayout
+        android:id="@+id/grid_pic"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp">
+        android:columnCount="3"
+        android:layout_gravity="center_horizontal"
+        android:padding="16dp"
+        android:rowCount="3">
 
-        <ImageButton
-            android:id="@+id/thumb_button_1"
-            android:layout_width="100dp"
-            android:layout_height="75dp"
-            android:layout_marginRight="1dp"
-            android:src="@drawable/thumb1"
-            android:scaleType="centerCrop" />
+        <ImageView
+            android:id="@+id/food1"
+            android:src="@drawable/food1"
+            style="@style/listViewMultiImageView"/>
 
-        <ImageButton
-            android:id="@+id/thumb_button_2"
-            android:layout_width="100dp"
-            android:layout_height="75dp"
-            android:layout_marginRight="1dp"
-            android:src="@drawable/thumb2"
-            android:scaleType="centerCrop" />
+        <ImageView
+            android:id="@+id/food2"
+            style="@style/listViewMultiImageView"
+            android:src="@drawable/food2" />
 
-    </LinearLayout>
+        <ImageView
+            android:id="@+id/food3"
+            style="@style/listViewMultiImageView"
+            android:src="@drawable/food3" />
+
+        <ImageView
+            android:id="@+id/food4"
+            style="@style/listViewMultiImageView"
+            android:src="@drawable/food4" />
+
+        <ImageView
+            android:id="@+id/food5"
+            style="@style/listViewMultiImageView"
+            android:src="@drawable/food5" />
+
+        <ImageView
+            android:id="@+id/food6"
+            style="@style/listViewMultiImageView"
+            android:src="@drawable/food6" />
+
+        <ImageView
+            android:id="@+id/food7"
+            style="@style/listViewMultiImageView"
+            android:src="@drawable/food7" />
+
+
+    </GridLayout>
 
     <!-- This initially-hidden ImageView will hold the expanded/zoomed version of
          the images above. Without transformations applied, it takes up the entire

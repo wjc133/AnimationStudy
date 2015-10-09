@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
+import android.widget.GridLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
@@ -20,34 +21,29 @@ import com.elite.animation.R;
  * Created by wjc133 on 2015/9/25.
  */
 public class AlbumActivity extends AppCompatActivity {
-    private ImageButton thumb_button_1;
-    private ImageButton thumb_button_2;
     private Animator mCurrentAnimator;
     private ImageView expandImageView;
+    private GridLayout mGridLayout;
 
-    private int[] mThumbDrawables = {R.drawable.thumb1, R.drawable.thumb2};
+    private int[] mThumbDrawables = {R.drawable.food1, R.drawable.food2, R.drawable.food3,
+            R.drawable.food4, R.drawable.food5, R.drawable.food6, R.drawable.food7};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_album);
-        thumb_button_1 = (ImageButton) findViewById(R.id.thumb_button_1);
-        thumb_button_2 = (ImageButton) findViewById(R.id.thumb_button_2);
+        mGridLayout = (GridLayout) findViewById(R.id.grid_pic);
         expandImageView = (ImageView) findViewById(R.id.expanded_image);
-
-        thumb_button_1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                zoomFromThumb(v, R.drawable.thumb1);
-            }
-        });
-
-        thumb_button_2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                zoomFromThumb(v, R.drawable.thumb2);
-            }
-        });
+        for (int i = 0; i < mThumbDrawables.length; i++) {
+            final int enterNum=i;
+            ImageView imgView= (ImageView) mGridLayout.getChildAt(i);
+            imgView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    zoomFromThumb(v,mThumbDrawables[enterNum]);
+                }
+            });
+        }
     }
 
     private void zoomFromThumb(final View v, int thumbResId) {
