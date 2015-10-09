@@ -1,4 +1,4 @@
-package com.elite.animation;
+package com.elite.animation.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.elite.animation.R;
 
 /**
  * Elite Group

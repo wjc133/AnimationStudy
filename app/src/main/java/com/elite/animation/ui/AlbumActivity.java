@@ -1,4 +1,4 @@
-package com.elite.animation;
+package com.elite.animation.ui;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -13,6 +13,8 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import com.elite.animation.R;
+
 /**
  * Elite Group
  * Created by wjc133 on 2015/9/25.
@@ -22,6 +24,8 @@ public class AlbumActivity extends AppCompatActivity {
     private ImageButton thumb_button_2;
     private Animator mCurrentAnimator;
     private ImageView expandImageView;
+
+    private int[] mThumbDrawables = {R.drawable.thumb1, R.drawable.thumb2};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

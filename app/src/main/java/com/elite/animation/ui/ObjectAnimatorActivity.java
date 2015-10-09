@@ -1,4 +1,4 @@
-package com.elite.animation;
+package com.elite.animation.ui;
 
 import android.animation.ObjectAnimator;
 import android.app.Activity;

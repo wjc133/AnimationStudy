@@ -1,25 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.elite.animation" >
+    package="com.elite.animation">
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".application.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
-        <activity
-            android:name=".AlbumActivity"
-            android:label="@string/app_name" >
+        android:theme="@style/AppTheme">
+        <activity android:name=".ui.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-        <activity android:name=".OldAnimationActivity">
-
-        </activity>
+        <activity android:name=".ui.MainActivity" />
+        <activity android:name=".ui.AlbumActivity" />
+        <activity android:name=".ui.OldAnimationActivity" />
+        <activity android:name=".ui.ObjectAnimatorActivity" />
+        <activity
+            android:name=".ui.SharedActivity"
+            android:theme="@style/AppTheme.Lip" />
+        <activity
+            android:name=".ui.SharedDetailActivity"
+            android:theme="@style/AppTheme.Lip" />
     </application>
 
 </manifest>

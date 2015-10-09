@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <View
+            android:id="@+id/line1"
+            style="@style/FilpLineStyle"/>
+
+    <View
+            android:id="@+id/line2"
+            style="@style/FilpLineStyle"/>
+
+    <View
+            android:id="@+id/line3"
+            style="@style/FilpLineStyle"/>
+
+    <View
+            android:id="@+id/line4"
+            style="@style/FilpLineStyle"/>
+
+</merge>

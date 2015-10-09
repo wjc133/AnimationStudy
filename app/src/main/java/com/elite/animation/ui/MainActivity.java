@@ -1,4 +1,4 @@
-package com.elite.animation;
+package com.elite.animation.ui;
 
 import android.animation.ObjectAnimator;
 import android.app.Fragment;
@@ -12,6 +12,8 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.elite.animation.R;
 
 public class MainActivity extends AppCompatActivity {
 
