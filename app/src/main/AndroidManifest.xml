@@ -27,6 +27,7 @@
         <activity
             android:name=".ui.SharedDetailActivity"
             android:theme="@style/AppTheme.Lip" />
+        <activity android:name=".ui.LeafLoadingActivity"/>
     </application>
 
 </manifest>

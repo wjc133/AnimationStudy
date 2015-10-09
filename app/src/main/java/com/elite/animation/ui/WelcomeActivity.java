@@ -20,8 +20,9 @@ import java.util.List;
  * Created by wjc133 on 2015/10/9.
  */
 public class WelcomeActivity extends Activity {
-    private String[] titles = {"View Animator", "Property Animator", "ViewPropertyAnimator", "Shared Elements Transition", "More..."};
-    private String[] descriptions = {"Android 2.x使用的动画机制", "Android 3.0推出的属性动画机制", "针对View进行优化了的属性动画", "Android 5.0的Activity之间可以使用共享元素切换", "coming soon……"};
+    private String[] titles = {"View Animation", "Property Animation", "ViewPropertyAnimator", "Shared Elements Transition", "叶子进度条动画效果","More..."};
+    private String[] descriptions = {"Android 2.x使用的动画机制", "Android 3.0推出的属性动画机制", "针对View进行优化了的属性动画", "Android 5.0的Activity之间可以使用共享元素切换",
+            "利用View的动画实现","coming soon……"};
 
     private ListView mListView;
 
@@ -55,6 +56,9 @@ public class WelcomeActivity extends Activity {
                         intent.setClass(WelcomeActivity.this, SharedActivity.class);
                         startActivity(intent);
                         break;
+                    case 4:
+                        intent.setClass(WelcomeActivity.this, LeafLoadingActivity.class);
+                        startActivity(intent);
                     default:
                         break;
                 }
