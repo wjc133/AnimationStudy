@@ -7,14 +7,25 @@ import android.animation.ObjectAnimator;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.transition.ChangeBounds;
+import android.transition.Scene;
+import android.transition.Transition;
+import android.transition.TransitionManager;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
+import android.widget.FrameLayout;
 import android.widget.GridLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.elite.animation.R;
+
+import java.util.List;
 
 /**
  * Elite Group
@@ -23,7 +34,48 @@ import com.elite.animation.R;
 public class AlbumActivity extends AppCompatActivity {
     private Animator mCurrentAnimator;
     private ImageView expandImageView;
+    private FrameLayout mContainer;
     private GridLayout mGridLayout;
+    private Scene mEndScene;
+    private Transition mTransition;
+
+
+    private ViewPager viewPager;
+    private List<View> viewContainer;
+    private LayoutInflater inflater;
+
+    private PagerAdapter mAdapter = new PagerAdapter() {
+        @Override
+        public int getCount() {
+            return viewContainer.size();
+        }
+
+        @Override
+        public boolean isViewFromObject(View view, Object object) {
+            return view == object;
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return null;
+        }
+
+        @Override
+        public Object instantiateItem(ViewGroup container, int position) {
+            container.addView(viewContainer.get(position));
+            return viewContainer.get(position);
+        }
+
+        @Override
+        public void destroyItem(ViewGroup container, int position, Object object) {
+            container.removeView(viewContainer.get(position));
+        }
+
+        @Override
+        public int getItemPosition(Object object) {
+            return super.getItemPosition(object);
+        }
+    };
 
     private int[] mThumbDrawables = {R.drawable.food1, R.drawable.food2, R.drawable.food3,
             R.drawable.food4, R.drawable.food5, R.drawable.food6, R.drawable.food7};
@@ -33,17 +85,33 @@ public class AlbumActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_album);
         mGridLayout = (GridLayout) findViewById(R.id.grid_pic);
+        mContainer = (FrameLayout) findViewById(R.id.container);
         expandImageView = (ImageView) findViewById(R.id.expanded_image);
         for (int i = 0; i < mThumbDrawables.length; i++) {
-            final int enterNum=i;
-            ImageView imgView= (ImageView) mGridLayout.getChildAt(i);
+            final int enterNum = i;
+            ImageView imgView = (ImageView) mGridLayout.getChildAt(i);
             imgView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    zoomFromThumb(v,mThumbDrawables[enterNum]);
+//                    zoomFromThumb(v, mThumbDrawables[enterNum]);
+                    TransitionManager.go(mEndScene, mTransition);
                 }
             });
         }
+
+        makeScene();
+    }
+
+    private void makeScene() {
+        View v = getLayoutInflater().inflate(R.layout.activity_img_detail, null);
+        ViewPager viewPager = (ViewPager) v.findViewById(R.id.viewpager);
+        viewPager.setAdapter(mAdapter);
+        View view1 = new ImageView(this);
+//        view1.setId("");
+
+
+        mEndScene = Scene.getSceneForLayout(mContainer, R.layout.activity_img_detail, this);
+        Transition mTransition = new ChangeBounds();
     }
 
     private void zoomFromThumb(final View v, int thumbResId) {
