@@ -12,4 +12,7 @@
     <string name="current_Disparity">修改振幅差距，当前%1$s</string>
     <string name="current_float_time">修改移动速度，当前%1$s</string>
     <string name="current_rotate_time">修改旋转速度，当前%1$s</string>
+    <string name="text_start_angle">初始角度（Start Angle）：</string>
+    <string name="text_sweep_angle">扫过角度（Sweep Angle）：</string>
+    <string name="btn_fragment_transition">切换Fragment</string>
 </resources>

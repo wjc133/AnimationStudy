@@ -4,6 +4,7 @@ package com.elite.animation.ui;
 import java.util.Random;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -20,8 +21,7 @@ import com.elite.animation.R;
 import com.elite.animation.helper.AnimationUtils;
 
 
-public class LeafLoadingActivity extends Activity implements OnSeekBarChangeListener,
-        OnClickListener {
+public class LeafLoadingActivity extends Activity implements OnSeekBarChangeListener {
 
     Handler mHandler = new Handler() {
         public void handleMessage(Message msg) {
@@ -46,7 +46,9 @@ public class LeafLoadingActivity extends Activity implements OnSeekBarChangeList
                 default:
                     break;
             }
-        };
+        }
+
+        ;
     };
 
     private static final int REFRESH_PROGRESS = 0x10;
@@ -56,11 +58,9 @@ public class LeafLoadingActivity extends Activity implements OnSeekBarChangeList
     private TextView mMplitudeText;
     private TextView mDisparityText;
     private View mFanView;
-    private Button mClearButton;
     private int mProgress = 0;
+    private Button mTestBtn;
 
-    private TextView mProgressText;
-    private View mAddProgress;
     private SeekBar mFloatTimeSeekBar;
 
     private SeekBar mRotateTimeSeekBar;
@@ -80,8 +80,6 @@ public class LeafLoadingActivity extends Activity implements OnSeekBarChangeList
         RotateAnimation rotateAnimation = AnimationUtils.initRotateAnimation(false, 1500, true,
                 Animation.INFINITE);
         mFanView.startAnimation(rotateAnimation);
-        mClearButton = (Button) findViewById(R.id.clear_progress);
-        mClearButton.setOnClickListener(this);
 
         mLeafLoadingView = (LeafLoadingView) findViewById(R.id.leaf_loading);
         mMplitudeText = (TextView) findViewById(R.id.text_ampair);
@@ -102,10 +100,6 @@ public class LeafLoadingActivity extends Activity implements OnSeekBarChangeList
         mDistanceSeekBar.setProgress(mLeafLoadingView.getMplitudeDisparity());
         mDistanceSeekBar.setMax(20);
 
-        mAddProgress = findViewById(R.id.add_progress);
-        mAddProgress.setOnClickListener(this);
-        mProgressText = (TextView) findViewById(R.id.text_progress);
-
         mFloatTimeText = (TextView) findViewById(R.id.text_float_time);
         mFloatTimeSeekBar = (SeekBar) findViewById(R.id.seekBar_float_time);
         mFloatTimeSeekBar.setOnSeekBarChangeListener(this);
@@ -121,6 +115,15 @@ public class LeafLoadingActivity extends Activity implements OnSeekBarChangeList
         mRotateTimeSeekBar.setProgress((int) mLeafLoadingView.getLeafRotateTime());
         mRotateTimeText.setText(getResources().getString(R.string.current_float_time,
                 mLeafLoadingView.getLeafRotateTime()));
+
+        mTestBtn = (Button) findViewById(R.id.btn_start_test);
+        mTestBtn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LeafLoadingActivity.this, TestActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -137,8 +140,7 @@ public class LeafLoadingActivity extends Activity implements OnSeekBarChangeList
             mLeafLoadingView.setLeafFloatTime(progress);
             mFloatTimeText.setText(getResources().getString(R.string.current_float_time,
                     progress));
-        }
-        else if (seekBar == mRotateTimeSeekBar) {
+        } else if (seekBar == mRotateTimeSeekBar) {
             mLeafLoadingView.setLeafRotateTime(progress);
             mRotateTimeText.setText(getResources().getString(R.string.current_rotate_time,
                     progress));
@@ -154,18 +156,5 @@ public class LeafLoadingActivity extends Activity implements OnSeekBarChangeList
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
 
-    }
-
-    @Override
-    public void onClick(View v) {
-        if (v == mClearButton) {
-            mLeafLoadingView.setProgress(0);
-            mHandler.removeCallbacksAndMessages(null);
-            mProgress = 0;
-        } else if (v == mAddProgress) {
-            mProgress++;
-            mLeafLoadingView.setProgress(mProgress);
-            mProgressText.setText(String.valueOf(mProgress));
-        }
     }
 }

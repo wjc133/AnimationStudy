@@ -20,9 +20,12 @@ import java.util.List;
  * Created by wjc133 on 2015/10/9.
  */
 public class WelcomeActivity extends Activity {
-    private String[] titles = {"View Animation", "Property Animation", "ViewPropertyAnimator", "Shared Elements Transition", "叶子进度条动画效果","More..."};
-    private String[] descriptions = {"Android 2.x使用的动画机制", "Android 3.0推出的属性动画机制", "针对View进行优化了的属性动画", "Android 5.0的Activity之间可以使用共享元素切换",
-            "利用View的动画实现","coming soon……"};
+    private String[] titles = {"View Animation", "画廊图片点击放大效果", "ViewPropertyAnimator", "Fragment切换动画",
+            "Transition Framework", "Shared Elements Transition", "叶子进度条动画效果","小球落地弹回效果", "More..."};
+    private String[] descriptions = {"Android 2.x使用的动画机制，此时主要展示其弊端", "利用Property Animation实现，Property Animation是Android 3.0推出的全新的动画系统",
+            "针对View进行优化了的属性动画", "Fragment切换动画示例，Fragment的切换动画主要通过xml定义，其本质为Property Animation",
+            "Transition Framework的使用示例，指定视图层下所有子View都会产生动画", "Android 5.0的Activity之间可以使用共享元素切换",
+            "利用View的动画实现","API Demo中提供的触摸小球下落的例子，该例说明了属性动画可以应用于任意对象，不一定非得是View", "coming soon……"};
 
     private ListView mListView;
 
@@ -45,7 +48,7 @@ public class WelcomeActivity extends Activity {
                         startActivity(intent);
                         break;
                     case 1:
-                        intent.setClass(WelcomeActivity.this, MainActivity.class);
+                        intent.setClass(WelcomeActivity.this, AlbumActivity.class);
                         startActivity(intent);
                         break;
                     case 2:
@@ -53,12 +56,25 @@ public class WelcomeActivity extends Activity {
                         startActivity(intent);
                         break;
                     case 3:
-                        intent.setClass(WelcomeActivity.this, SharedActivity.class);
+                        intent.setClass(WelcomeActivity.this, FragmentTransitionActivity.class);
                         startActivity(intent);
                         break;
                     case 4:
+                        intent.setClass(WelcomeActivity.this, TransitionActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 5:
+                        intent.setClass(WelcomeActivity.this, SharedActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 6:
                         intent.setClass(WelcomeActivity.this, LeafLoadingActivity.class);
                         startActivity(intent);
+                        break;
+                    case 7:
+                        intent.setClass(WelcomeActivity.this, BouncingBalls.class);
+                        startActivity(intent);
+                        break;
                     default:
                         break;
                 }

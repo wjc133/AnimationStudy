@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/scene_text_b"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@android:color/holo_red_light"
+        android:padding="10dp"
+        android:text="this is a test ! hello world BBBBB~~~"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/scene_text_a"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@android:color/holo_blue_bright"
+        android:padding="10dp"
+        android:text="this is a test ! hello world AAAAA!!!"
+        android:textSize="20sp" />
+
+</LinearLayout>
